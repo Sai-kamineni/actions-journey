@@ -1,28 +1,5 @@
 name: pipeline
 on: push
 jobs:
-<<<<<<< HEAD
   checks:
     uses: ./.github/workflows/checks.yml
-=======
-  build:
-    runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.ver.outputs.version }}
-    steps:
-      - name: Compute version
-        id: ver
-        run: echo "version=1.0.$GITHUB_RUN_NUMBER" >> "$GITHUB_OUTPUT"
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Run tests
-        run: echo "tests passed"
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [build, test]
-    steps:
-      - name: Deploy
-        run: echo "Deploying version ${{ needs.build.outputs.version }}"
->>>>>>> dfc9997352fffa1ec67af47053c3016ae08691a3
